@@ -1,0 +1,2 @@
+module OrderTicketHelper
+end

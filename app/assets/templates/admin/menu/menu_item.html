@@ -1,0 +1,78 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dine &amp; Dash</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/restaurant/{{restaurant.id}}/menus">Menus</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Export</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li><a href="">Nav item</a></li>
+        <li><a href="">Nav item again</a></li>
+        <li><a href="">One more nav</a></li>
+        <li><a href="">Another nav item</a></li>
+        <li><a href="">More navigation</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li><a href="">Nav item again</a></li>
+        <li><a href="">One more nav</a></li>
+        <li><a href="">Another nav item</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">{{menu.menu_section.menu_item.title}}</h1>
+      
+      
+      <input type="text" ng-model='section.description' placeholder="Enter a Title">
+      <br>
+      <label>
+        Will the user be able to select one or many?
+      </label>
+      <select ng-model='section.radio'>
+        Chose one or many
+        <option value="1">One</option>
+        <option value="0">Many</option>
+      </select>
+      <button type="button" class="btn btn-primary" ng-click="create(section)">Add</button>
+      <ul>
+        <li ng-repeat="option_section in menu.menu_section.menu_item.menu_item_option_sections">
+          {{option_section.description}}
+          <div ng-if="option_section.radiobuttons == 1">
+            One
+          </div>
+          <div ng-if="option_section.radiobuttons == 0">
+            Many
+          </div>
+          <a href='/admin/restaurant/{{restaurant.id}}/menu/{{menu.id}}/section/{{menu.menu_section.id}}/item/{{menu.menu_section.menu_item.id}}/option_section/{{option_section.id}}'>View Options</a>
+          <a href='' ng-click="deleteMenuOptionSection(option_section.id, $index)">Delete</a>
+        </li>
+      </ul>
+
+  </div>
+</div>

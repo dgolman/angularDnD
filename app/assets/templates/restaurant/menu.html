@@ -1,0 +1,191 @@
+<div class="container-fluid">
+	<form method="post" class="receipt-form" ng-submit="checkout()">
+		<div class="col-md-8">
+			<div class="menu" ng-menu>
+				<div class="menu-section row" ng-repeat="section in menu_sections">
+					<h1>{{section.title}}</h1>
+					<div class="row">
+						<div ng-repeat="item in section.menu_items">
+							<div class="col-sm-6">
+								<a href="#" data-target="#item-{{section.id}}-{{item.id}}" data-toggle="modal" ng-click="setSelected(item)" class="menu-item">
+									<span class="menu-item-price badge pull-right">{{item.price}}</span>
+									<h4 class="menu-item-title">{{item.title}}</h4>
+									<p class="menu-item-description">{{item.description}}</p>
+								</a>
+
+								<div class="modal fade" id="item-{{section.id}}-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">{{item.title}}</h4>
+											</div>
+
+											<div class="modal-body">
+												<div ng-repeat="option_section in item.option_sections">
+													<h4>{{option_section.description}}</h4>
+													<div class="row">
+														<div ng-show="option_section.radiobuttons == 1">
+															<div class="col-md-4" ng-repeat="option in option_section.options">
+																<div class="radio">
+																	<label>
+																		<input type="radio" ng-model="radio_options[option_section.id]" ng-value="{{option}}">
+																		{{option.description}}
+																		<span ng-show="option.price != 0">(${{option.price}})</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+														<div ng-show="option_section.radiobuttons == 0">
+															<div class="col-md-4" ng-repeat="option in option_section.options">
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" name="checkbox_options" ng-model="option_ids[option.id]">
+																		{{option.description}}
+																		<span ng-show="option.price != 0">(${{option.price}})</span>
+																		
+																	</label>
+																</div>
+															</div>
+
+														</div>
+
+													</div>
+
+													<hr /> 
+
+												</div>
+
+												<div class="control-group">
+													<label><small>Additional Notes</small></label>
+													<textarea class="note form-control" rows="3" ng-model="selectedItem.line_item.note"></textarea>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<a href="#" class="btn btn-success btn-block" ng-click="addItemToOrderTicket()">Add Item to Order</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix" ng-show="$odd"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="receipt receipt-fixed">
+				<div class="receipt-inner">
+
+					<div class="receipt-header">
+						<h1>{{restaurant.name}}</h1>
+						<h2>
+							{{restaurant.street}},
+							{{restaurant.city}}, 
+							{{restaurant.state}} 
+						</h2>
+					</div>
+
+					<table class="table">
+
+						<tr class="receipt-row" ng-repeat="receipt_item in order_ticket.line_items track by $id($index)">
+							<td width="1">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-pencil"></i>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+										<li>
+											<a href="#" data-target="#item-{{receipt_item.menu_section_id}}-{{receipt_item.item_id}}-edit" data-toggle="modal" class="menu-item-edit">
+												<i class="fa fa-pencil"></i>
+												Change Order
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-times"></i>
+												Remove from Order
+											</a>
+										</li>
+									</ul>
+									<div class="modal fade" id="item-{{receipt_item.menu_section_id}}-{{receipt_item.item_id}}-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">{{receipt_item.name}}</h4>
+											</div>
+
+											<div class="modal-body" ng-option-sections index="{{$index}}" menu-section-id="{{receipt_item.menu_section_id}}" item-id="{{receipt_item.item_id}}">
+												<div ng-repeat="option_section in receipt_item.option_sections">
+													<h4>{{option_section.description}}</h4>
+													<div class="row">
+														<div ng-show="option_section.radiobuttons == 1">
+															<div class="col-md-4" ng-repeat="option in option_section.options">
+																<div class="radio">
+																	<label>
+																		<input type="radio" name="options" ng-model="item.option" ng-checked="option.checked">
+																		{{option.description}}
+																		<span ng-show="option.price != 0">(${{option.price}})</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+														<div ng-show="option_section.radiobuttons == 0">
+															<div class="col-md-4" ng-repeat="option in option_section.options">
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox" name="options" ng-model="item.option" ng-checked="option.checked">
+																		{{option.description}}
+																		<span ng-show="option.price != 0">(${{option.price}})</span>
+																	</label>
+																</div>
+															</div>
+
+														</div>
+
+													</div>
+
+													<hr /> 
+
+												</div>
+
+												<div class="control-group">
+													<label><small>Additional Notes</small></label>
+													<textarea class="note form-control" rows="3"></textarea>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<a href="#" class="btn btn-success btn-block" ng-click="editItem(receipt_item)">Add Item to Order</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+							</td>
+							<td>
+								<span class="receipt-item-title">{{receipt_item.name}}</span>
+							</td>
+							<td width="1">
+								<span class="receipt-item-price">{{receipt_item.price}}
+								</span>
+							</td>
+						</tr>
+						<tr class="total">
+							<td></td>
+							<td><strong>TOTAL</strong></td>
+							<td><strong>{{total}}</strong></td>
+						</tr>
+					</table>
+
+				</div>
+				<a href="#" class="btn btn-success btn-block btn-pay">Complete Checkout</a>
+				<button class="btn btn-danger btn-block" disabled>Sorry, We're Closed</button>
+				
+			</div>
+
+		</div>
+	</div>

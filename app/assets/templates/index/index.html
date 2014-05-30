@@ -1,0 +1,198 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-home" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-shopping-cart"></i> Order Now
+      </button>
+      <!--<a class="navbar-brand hidden-xs" href="#">Order Now</a>-->
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <form class="navbar-form" id="search-form">
+        <div class="row">
+          <div class="col-md-5 col-md-offset-3">
+            <div class="input-group">
+              <input type="text" style="width:100%" class="form-control" id="geocomplete" placeholder="Where are you?" required/>
+              <span class="input-group-btn"><button type="button" class="btn btn-default gps"><i class="fa fa-crosshairs"></i></button></span>
+            </div>
+
+          </div>
+          <div class="col-md-2 col-sm-8 col-xs-6">
+            <a href="" class="btn btn-success btn-block">Find Restaurants</a>
+          </div>
+        </div>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<header class="home">
+
+  <div class="header-row header-row-slogans">
+    <div class="header-cell header-cell-slogans">
+      <span class="slogan">Dine When Your Food is Ready.</span>
+      <br>
+      <span class="slogan">Reserve Your Table &amp; Order Food Online.</span>
+    </div>
+  </div>
+
+  <div class="header-row header-row-intro" id="intro">
+    <div class="header-cell header-cell-intro">
+      <a href="#intro">
+        <div class="logo">
+          <span class="logo-dine">Dine</span><span class="logo-and">&amp;</span><span class="logo-dash">Dash</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
+<section>
+<!--     <h4 class="text-center">Founding Restaurants</h4>
+    <hr style="padding-bottom:15px;">
+    <div class="row-fluid text-center">
+      <div class="col-lg-2 ">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+      <div class="col-lg-2 center">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+      <div class="col-lg-2 center">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+      <div class="col-lg-2 center">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+      <div class="col-lg-2 center">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+      <div class="col-lg-2 center">
+        <img src="http://placehold.it/75x75" alt="Treble">
+      </div>
+    </div>
+  -->
+  <!-- <hr style="padding-top:30px;"> -->
+  <!-- <hr class="featurette-divider"> -->
+  <div class="container marketing">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Mission Statement: <span class="text-muted">Making dine in quality food available, when time is not.</span></h2>
+        <p class="lead">Dine and Dash is an online ordering / payment processing application for dine-in quality restaurants that will allow you to sit-down, eat, and pay in the same timeframe it would take you to eat at McDonalds.</p>
+      </div>
+      <div class="col-md-5" style="margin-top:80px;">
+        <div class="header-row header-row-intro" id="intro">
+          <div class="header-cell header-cell-intro">
+            <div class="logo" style="zoom:8; text-align:center;">
+              <span class="logo-dine">Dine</span><span class="logo-and">&amp;</span><span class="logo-dash">Dash</span>
+            </div>
+          </div>
+        </div>
+        <hr style="border-top:1px solid #808080">
+        <div style="text-align:center;">
+          <a href="http://www.linkedin.com/company/dine-n-dash" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
+          <a href="https://www.facebook.com/DineandDash" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
+          <a href="https://twitter.com/dinendashnow" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <!-- Three columns of text below the carousel -->
+    <h2 class="text-center">Meet the Team</h2>
+    <br>
+    <div class="row">
+      <div class="col-lg-3" style="text-align:center;">
+        <img class="img-circle" src="<%= asset_path('devonThomas.jpg') %>" style="width: 140px; height: 140px;">
+        <h2>Devon Thomas</h2>
+        <p>CEO</p>
+        <a href="http://www.linkedin.com/in/devonjthomas/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://www.facebook.com/DevonJthomas" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3" style="text-align:center;">
+        <img class="img-circle" data-src="holder.js/140x140" src="<%= asset_path('danielGolman.png') %>" style="width: 140px; height: 140px;">
+        <h2>Daniel Golman</h2>
+        <p>CTO</p>
+        <a href="https://www.linkedin.com/in/dgolman" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3" style="text-align:center;">
+        <img class="img-circle" data-src="holder.js/140x140" src="<%= asset_path('michaelLiu.png') %>" style="width: 140px; height: 140px;">
+        <h2>Michael Liu</h2>
+        <p>Lead Developer</p>
+        <a href="http://www.linkedin.com/profile/view?id=287004653" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://www.facebook.com/michael.liu95" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3" style="text-align:center;">
+        <img class="img-circle" data-src="holder.js/140x140" src="<%= asset_path('conorPatrick.jpg') %>" style="width: 140px; height: 140px;">
+        <h2>Conor Patrick</h2>
+        <p>Embedded Systems Engineer</p>
+        <a href="https://www.facebook.com/conor.patrick.1" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+    <hr class="featurette-divider">
+
+    <h2 class="text-center">Corporate Members</h2>
+    <div class="row-fluid text-center">
+      <div class="col-md-15">
+        <a href="http://www.creekmorelaw.com/" target="_blank"><img src="<%= asset_path('cs1.jpg') %>"></a>
+      </div>
+      <div class="col-md-15">
+        <a href="https://www.koofers.com/" target="_blank"><img src="<%= asset_path('cs2.jpg') %>"></a>
+      </div>
+      <div class="col-md-15">
+        <a href="http://www.virtualu.co/" target="_blank"><img src="<%= asset_path('cs3.jpg') %>"></a>
+      </div>
+      <div class="col-md-15">
+        <a href="http://lawnstarter.com/" target="_blank"><img src="<%= asset_path('cs4.jpg') %>"></a>
+      </div>
+      <div class="col-md-15">
+        <a href="http://trackpunch.com/" target="_blank"><img src="<%= asset_path('cs5.jpg') %>"></a>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+<%= render 'shared/footer' %>
+<script>
+
+$(function(){
+  $("#geocomplete").geocomplete({
+    autoselect: true
+  });
+});
+
+function show_map(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  $.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true',
+   success: function(data){
+     $('#geocomplete').val(data.results[0].formatted_address);
+     $.unblockUI();
+     $('#search-form').submit();
+     /*or you could iterate the components for only the city and state*/
+   }
+ });
+    // let's show a map or do something interesting!
+  }
+
+  $('.gps').click(function(e){
+    $.blockUI({ message: '<h1>Loading GPS...</h1>',
+      css: { 
+        border: 'none', 
+        padding: '15px', 
+        backgroundColor: '#000', 
+        '-webkit-border-radius': '10px', 
+        '-moz-border-radius': '10px', 
+        opacity: 1, 
+        color: '#fff' 
+      } });  
+    navigator.geolocation.getCurrentPosition(show_map);
+    e.preventDefault();
+  });
+  </script>
